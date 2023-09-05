@@ -7,7 +7,8 @@ Ele fornece quatro principais funcionalidades:
 1. Consulta de Endereço por CEP.
 2. Adição de Endereço e Cliente.
 3. Consulta de Endereços de um Cliente por Email.
-4.  e uma listaagem de todos os Clientes e seus respectivos endereços
+4. Adicionar os Endereços
+5.  Listaagem de todos os Clientes e seus respectivos endereços
 
 ## Pré-requisitos
 
@@ -55,8 +56,7 @@ O servidor Spring Boot será iniciado.
 
 ### 1. Consulta de Endereço por CEP
 
-Para consultar um endereço por CEP, faça uma solicitação GET para a seguinte URL:
-http://localhost:8080/api/v1/address/{cep}
+Para consultar um endereço por CEP, faça uma solicitação GET para a seguinte URL: http://localhost:8080/api/v1/address/{cep}
 
 
 Substitua `{cep}` pelo CEP que deseja consultar.
@@ -72,9 +72,27 @@ exemplo de json
     "email": "kermes.salustiano@hotmail.com"
 }
 
-Oservação: Necessario adicionar o cliente primeiro  pois o seu id seá enviado junto com os dados do Endereço a adicionar para o mesmo
+Oservação:Necessario realizar o cadastro do cliente primeiro, pois seu Id sera usado para o cadastro do endereço
 
-### 3.  Consulta de um Cliente por Email
+
+### 4.  Adicionando Endereços
+Para adicionar um  um cliente, faça uma solicitação POST para a seguinte URL:http://localhost:8080/api/v1/address
+
+envie os dados do Json no Body 
+exemplo de json
+{
+    "cep": "84900000",
+    "logradouro": "Rua Paulo Cruz Pimentel",
+    "numero": 12,
+    "complemento": "Loja",
+    "bairro": "Centro",
+    "localidade": "Ibaiti",
+    "uf": "PR",
+    "clientId": 7
+}
+Oservação:no campo clientId informe o ID do cliente cadastrado no passo anterior
+
+### 5.  Consulta de um Cliente por Email
 Para consultar os  cliente por email, faça uma solicitação GET para a seguinte URL:
 http://localhost:8080/api/v1/clients/{email}
 
