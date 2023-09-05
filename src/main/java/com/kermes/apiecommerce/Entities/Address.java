@@ -21,7 +21,7 @@ public class Address {
     @Column(name = "id")
     private Long id;
 
-   
+   @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
