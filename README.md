@@ -56,8 +56,7 @@ O servidor Spring Boot será iniciado.
 
 ### 1. Consulta de Endereço por CEP
 
-Para consultar um endereço por CEP, faça uma solicitação GET para a seguinte URL:
-http://localhost:8080/api/v1/address/{cep}
+Para consultar um endereço por CEP, faça uma solicitação GET para a seguinte URL: http://localhost:8080/api/v1/address/{cep}
 
 
 Substitua `{cep}` pelo CEP que deseja consultar.
@@ -65,7 +64,19 @@ Substitua `{cep}` pelo CEP que deseja consultar.
 ### 2. Adição de um Cliente
 
 Para adicionar um  um cliente, faça uma solicitação POST para a seguinte URL:
-http://localhost:8080/api/v1/address
+http://localhost:8080/api/v1/clients
+
+envie os dados do Json no Body 
+exemplo de json
+{
+    "email": "kermes.salustiano@hotmail.com"
+}
+
+Oservação:Necessario realizar o cadastro do cliente primeiro, pois seu Id sera usado para o cadastro do endereço
+
+
+### 4.  Adicionando Endereços
+Para adicionar um  um cliente, faça uma solicitação POST para a seguinte URL:http://localhost:8080/api/v1/address
 
 envie os dados do Json no Body 
 exemplo de json
@@ -79,16 +90,7 @@ exemplo de json
     "uf": "PR",
     "clientId": 7
 }
-
 Oservação:no campo clientId informe o ID do cliente cadastrado no passo anterior
-
-### 4.  Adicionando Endereços
-Para adicionar um  um cliente, faça uma solicitação POST para a seguinte URL:
-http://localhost:8080/api/v1/clients
-
-envie os dados do Json no Body 
-exemplo de json
-
 
 ### 5.  Consulta de um Cliente por Email
 Para consultar os  cliente por email, faça uma solicitação GET para a seguinte URL:
