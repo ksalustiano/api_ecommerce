@@ -24,12 +24,11 @@ public class ClientService {
     }
 
 
-
     @Transactional
-    public Client criar(ClientCreateDTO c){
+    public Client criar(ClientCreateDTO c) {
         try {
             return clientRepository.save(ClientMapper.toClient(c));
-        }catch (DataIntegrityViolationException ex){
+        } catch (DataIntegrityViolationException ex) {
             throw new UniqueViolationException(String.format("Email: %s já cadastrao na base de dados!", c.getEmail()));
         }
 
@@ -39,17 +38,18 @@ public class ClientService {
     public List<Client> buscarTodos() {
         return clientRepository.findAll();
     }
+
     @Transactional(readOnly = true)
     public Client buscarPorId(Long id) {
-        return  clientRepository.findById(id).orElseThrow(
-                ()->new RuntimeException("CLiente não localizado")
+        return clientRepository.findById(id).orElseThrow(
+                () -> new RuntimeException("CLiente não localizado")
         );
     }
 
     @Transactional(readOnly = true)
     public Client buscarPorEmail(String email) {
         return clientRepository.findClientByEmail(email).orElseThrow(
-                ()->new RuntimeException("CLiente não localizado")
+                () -> new RuntimeException("CLiente não localizado")
         );
     }
 }

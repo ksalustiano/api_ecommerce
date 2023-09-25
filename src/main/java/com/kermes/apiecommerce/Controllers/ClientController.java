@@ -23,20 +23,20 @@ public class ClientController {
 
 
     @PostMapping()
-    public ResponseEntity<ClientReponseDTO> criar(@Valid @RequestBody ClientCreateDTO cli){
+    public ResponseEntity<ClientReponseDTO> criar(@Valid @RequestBody ClientCreateDTO cli) {
         Client user = clientService.criar(cli);
-        return  ResponseEntity.status(HttpStatus.CREATED).body(ClientMapper.toDTO(user));
+        return ResponseEntity.status(HttpStatus.CREATED).body(ClientMapper.toDTO(user));
 
     }
 
     @GetMapping("/{email}")
-    public ResponseEntity<ClientReponseDTO> getbyEmail(@PathVariable String email){
+    public ResponseEntity<ClientReponseDTO> getbyEmail(@PathVariable String email) {
         Client client = clientService.buscarPorEmail(email);
         return ResponseEntity.ok(ClientMapper.toDTO(client));
     }
 
     @GetMapping()
-    public ResponseEntity<List<ClientReponseDTO>> getAll(){
+    public ResponseEntity<List<ClientReponseDTO>> getAll() {
         List<Client> clients = clientService.buscarTodos();
         return ResponseEntity.ok(ClientMapper.tolistDTO(clients));
     }

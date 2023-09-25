@@ -21,7 +21,7 @@ public class Address {
     @Column(name = "id")
     private Long id;
 
-   @JsonIgnore
+    @JsonIgnore
     @ManyToOne
     @JoinColumn(name = "client_id")
     private Client client;
@@ -33,7 +33,7 @@ public class Address {
     private String localidade;
     private String uf;
 
-    private LocalDateTime created =  LocalDateTime.now();
+    private LocalDateTime created = LocalDateTime.now();
     @Column(nullable = true)
-    private  LocalDateTime updated;
+    private LocalDateTime updated;
 }
