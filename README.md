@@ -5,10 +5,9 @@ Este é um projeto de API REST desenvolvido em Java com o framework Spring Boot 
 Ele fornece quatro principais funcionalidades:
 
 1. Consulta de Endereço por CEP.
-2. Adição de Endereço e Cliente.
+2. Adicionar Endereço e/ou Cliente.
 3. Consulta de Endereços de um Cliente por Email.
-4. Adicionar os Endereços
-5.  Listaagem de todos os Clientes e seus respectivos endereços
+4. Listaagem de todos os Clientes e seus respectivos endereços
 
 ## Pré-requisitos
 
